@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * Clase Controladora del Temporizador
  */
-public class Temporizador extends GridPane {
+public class Temporizador extends AnchorPane {
     @FXML // fx:id="min1"
     private Label min1; // Value injected by FXMLLoader
 
@@ -38,7 +38,7 @@ public class Temporizador extends GridPane {
     public Temporizador(int segundos) {
         this.fin = new SimpleBooleanProperty(false);
         this.segundos = -1;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/alesandro/ejercicio15o/fxml/Temporizador.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Temporizador.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
