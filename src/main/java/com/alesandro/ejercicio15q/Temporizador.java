@@ -1,5 +1,6 @@
 package com.alesandro.ejercicio15q;
 
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
@@ -29,6 +30,7 @@ public class Temporizador extends AnchorPane {
 
     private BooleanProperty fin;
     private int segundos;
+    private Timer timer;
 
     /**
      * Constructor de la clase
@@ -56,7 +58,7 @@ public class Temporizador extends AnchorPane {
      */
     public boolean setSegundos(int segundos) {
         int minutos = (int)(segundos/60);
-        if (minutos>0 && minutos<100) {
+        if (minutos > 0 && minutos < 100) {
             this.segundos = segundos;
             return true;
         }
@@ -71,29 +73,50 @@ public class Temporizador extends AnchorPane {
             System.err.println("Asigna los segundos antes de iniciar el temporizador");
         } else {
             final int[] restante = {this.segundos};
-            Timer timer = new Timer();
+            timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
                 public void run() {
                     if (restante[0] < 0) {
-                        this.cancel();
+                        timer.cancel();
+                        Platform.runLater(() -> fin.set(true)); // Actualizar la propiedad "fin"
+                        return;
                     }
-                    int mins = restante[0] /60;
-                    int mins1 = mins/10;
-                    min1.setText(mins1 + "");
-                    int mins2 = mins%10;
-                    min2.setText(mins2 + "");
-                    int segs = restante[0] %60;
-                    int segs1 = segs/10;
-                    seg1.setText(segs1 + "");
-                    int segs2 = segs%10;
-                    seg2.setText(segs2 + "");
+                    int mins = restante[0] / 60;
+                    int mins1 = mins / 10;
+                    int mins2 = mins % 10;
+                    int segs = restante[0] % 60;
+                    int segs1 = segs / 10;
+                    int segs2 = segs % 10;
+                    // Usar Platform.runLater para actualizar los Labels en el hilo de la interfaz gráfica
+                    Platform.runLater(() -> {
+                        min1.setText(String.valueOf(mins1));
+                        min2.setText(String.valueOf(mins2));
+                        seg1.setText(String.valueOf(segs1));
+                        seg2.setText(String.valueOf(segs2));
+                    });
                     restante[0] -= 1;
                 }
             }, 0, 1000);
-            timer.purge();
-            fin.set(true);
         }
+    }
+
+    /**
+     * Función para detener el temporizador manualmente
+     */
+    public void detener() {
+        if (timer != null) {
+            timer.cancel();
+            timer.purge();
+        }
+    }
+
+    /**
+     * Devuelve si el temporizador ha finalizado
+     * @return BooleanProperty fin
+     */
+    public BooleanProperty finProperty() {
+        return fin;
     }
 
 }
