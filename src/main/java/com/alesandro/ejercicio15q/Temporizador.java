@@ -34,13 +34,11 @@ public class Temporizador extends AnchorPane {
 
     /**
      * Constructor de la clase
-     *
-     * @param segundos
      */
-    public Temporizador(int segundos) {
+    public Temporizador() {
         this.fin = new SimpleBooleanProperty(false);
         this.segundos = -1;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Temporizador.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/alesandro/ejercicio15q/Temporizador.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
