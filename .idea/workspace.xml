@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8cdc29b-6ad2-41af-94bb-8f3670f36852" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/alesandro/ejercicio15q/style/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/alesandro/ejercicio15q/Temporizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/alesandro/ejercicio15q/Temporizador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/alesandro/ejercicio15q/Temporizador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/alesandro/ejercicio15q/fxml/Temporizador.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +46,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/alesandro/ejercicio15q/fxml" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/alesandro" />
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
       <recent name="$PROJECT_DIR$/src/main/resources" />

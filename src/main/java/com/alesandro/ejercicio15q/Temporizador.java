@@ -38,7 +38,7 @@ public class Temporizador extends AnchorPane {
     public Temporizador() {
         this.fin = new SimpleBooleanProperty(false);
         this.segundos = -1;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Temporizador.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/Temporizador.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -84,6 +84,7 @@ public class Temporizador extends AnchorPane {
                 public void run() {
                     if (restante[0] < 0) {
                         timer.cancel();
+                        estiloParado();
                         Platform.runLater(() -> fin.set(true)); // Actualizar la propiedad fin para indicar que el temporizador ha terminado
                         return;
                     }
@@ -113,7 +114,15 @@ public class Temporizador extends AnchorPane {
         if (timer != null) {
             timer.cancel();
             timer.purge();
+            estiloParado();
         }
+    }
+
+    /**
+     * Clase que asigna el estilo "parado" para cuando se para el temporizador
+     */
+    public void estiloParado() {
+        this.getStyleClass().add("parado");
     }
 
     /**
