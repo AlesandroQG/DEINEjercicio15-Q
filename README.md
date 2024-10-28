@@ -4,7 +4,7 @@
 
 La estructura del proyecto es la siguiente:
 - `src > main`:
-    - `java > com.alesandro.ejercicio15q`:
-        - `Temporizador.java`: Clase que controla los eventos de la ventana principal de la aplicación
-    - `resources > fxml`:
-            - `Temporizador.fxml`: Ventana principal de la aplicación
+  - `java > com.alesandro.ejercicio15q`:
+    - `Temporizador.java`: Clase que controla los eventos de la ventana principal de la aplicación
+    - `resources > com.alesandro.ejercicio15q`:
+      - `Temporizador.fxml`: Ventana principal de la aplicación
